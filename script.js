@@ -15,7 +15,7 @@ drinkCloseBtn.addEventListener('click', () => {
 function getDrinkList () {
   const ingredient = document.querySelector('input').value.toLowerCase();
 
-    fetch(`https:www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`)
+    fetch(`https://api.codetabs.com/v1/proxy?quest=https:www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`)
     .then (res => res.json())
     .then (data => {
         console.log(data)
@@ -49,7 +49,7 @@ function getDrinkInstructions (e) {
   if(e.target.classList.contains('drink-btn')) {
     let drinkItem = e.target.parentElement.parentElement.parentElement;
 
-    fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkItem.dataset.id}`)
+    fetch(`https://api.codetabs.com/v1/proxy?quest=https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkItem.dataset.id}`)
     .then (res => res.json())
     .then (data => drinkInstructionModal(data.drinks))
     
