@@ -2,10 +2,18 @@ const searchBtn = document.getElementById('search-btn');
 const drinkList = document.getElementById('drinks');
 const drinkDetailContent = document.querySelector('.drink-content');
 const drinkCloseBtn = document.getElementById('drink-close-btn');
+const input = document.getElementById('ingredient');
+
 
 //Event Listeners
 searchBtn.addEventListener('click', getDrinkList);
-drinkList.addEventListener('click', getDrinkInstructions)
+drinkList.addEventListener('click', getDrinkInstructions);
+input.addEventListener('keypress', function(e) {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    document.getElementById('search-btn').click()
+  }
+})
 drinkCloseBtn.addEventListener('click', () => {
   drinkDetailContent.parentElement.classList.remove('showDrinkDetails')
 })
